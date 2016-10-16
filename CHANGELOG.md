@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/). 
 
+## v0.0.3 - 2016-10-16
+### Added
+- declaration files of packege to dist/.  
+
 ## v0.0.2 - 2016-10-16
 ### Added 
 - Changelog

@@ -10,6 +10,7 @@ tests/suite.ts
 # compiled files
 *.js
 *.js.map
+dist
 
 # logs
 *.log
