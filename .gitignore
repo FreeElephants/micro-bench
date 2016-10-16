@@ -1,0 +1,16 @@
+# IDE
+.idea
+
+# vendors
+node_modules
+
+# tests output
+tests/suite.ts
+
+# compiled files
+*.js
+*.js.map
+
+# logs
+*.log
+coverage
