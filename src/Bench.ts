@@ -22,17 +22,17 @@ export class Bench {
         return result;
     }
 
-    private runFunc() {
+    private runFunc(): void {
         for (let i = 0; i < this.cycles; i++) {
             this.func.apply(null);
         }
     }
 
-    private runFuncWithFixtures(fixtures: any[]) {
+    private runFuncWithFixtures(fixtures: any[]): void {
         let i = 0;
         while (i < this.cycles) {
             for (let args of fixtures) {
-                this.func.apply(null, [args]);
+                this.func.apply(null, args);
                 i++;
                 if(i === this.cycles) {
                     break;

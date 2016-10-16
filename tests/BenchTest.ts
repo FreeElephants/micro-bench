@@ -16,7 +16,7 @@ export class BenchTest extends AbstractUnitTestCase {
     public testExecuteWithFixtures() {
         let testedFuncCalledTimes = 0;
         let sideEffectVar = 0;
-        let fixtures = [1, 2, 3];
+        let fixtures = [[1], [2], [3]];
         let expectedCycles = 100;
         let funcUnderTest = (value: number) => {
             sideEffectVar = value
@@ -27,6 +27,6 @@ export class BenchTest extends AbstractUnitTestCase {
         this.assertSame("test", result.getCaseName(), "Expect correct case name in result. ");
         this.assertSame(expectedCycles, result.getIterations(), "Expect correct number of iterations. ");
         this.assertSame(expectedCycles, testedFuncCalledTimes, "Expect that tested function called correct times.");
-        this.assertContains(sideEffectVar, fixtures, "Expect tested function do something.");
+        this.assertContains(sideEffectVar, [1, 2, 3], "Expect tested function do something.");
     }
 }
