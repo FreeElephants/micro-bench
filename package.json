@@ -9,6 +9,7 @@
     "typescript",
     "perfomance optimization"
   ],
+  "main": "dist/index.js",
   "bugs": "https://github.com/FreeElephants/micro-bench/issues",
   "author": {
     "name": "samizdam",
