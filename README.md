@@ -8,7 +8,13 @@
 
 Library for simple benchmarks in typescript projects.
 
-## Installation:
+## Table of Contents: 
+1. [Installation](#installation)
+2. [Usage](#usage)
+3. [API](#api)
+4. [Testing](#testing)
+
+## Installation: 
 
 ```
 npm install micro-bench --save-dev
@@ -30,10 +36,43 @@ let result = bench.execute("My benchmark");
 console.log(result);
 ```
 
+## API
+
+### Class Bench
+
+Suitable for make performance test of some code with one or more data sets — fixtures. 
+
+```
+// create bench with 1 million iterations.
+let bench = new Bench((value: string|number) => {
+    // your code under benchmarking
+}, 1000000);
+
+// run code and get results
+let results: Result[] = [];
+results.push(bench.execute("Test with strings", [["foo"], ["bar"], ["baz"]]));
+results.push(bench.execute("Test with numbers", [[1], [2], [3]]));
+
+```
+
+Every fixture is array of arrays, that will be passed as arguments to your_function.apply().
+   
+### Class Result
+ 
+- `.getCaseName(): string` - return name of case specified on `Bench.execute()`. 
+- `.getAverageIterationTime(): number` - return average time of iteration in milliseconds. 
+- `.getIterationPerSec(): number` - return number of iterations in second. 
+- `.getTime(): number` - return time spent to this test in milliseconds. 
+
 ## Testing
 
 TSxUnit uses.
 
 ```
+# only tests
 npm test
-```
+
+# tests with coverage computing
+npm run coverage
+``` 
+
