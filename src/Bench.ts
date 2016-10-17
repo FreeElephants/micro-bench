@@ -34,7 +34,7 @@ export class Bench {
             for (let args of fixtures) {
                 this.func.apply(null, args);
                 i++;
-                if(i === this.cycles) {
+                if (i === this.cycles) {
                     break;
                 }
             }

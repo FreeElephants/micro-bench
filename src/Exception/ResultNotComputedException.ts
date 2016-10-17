@@ -1,3 +1,5 @@
-export class ResultNotComputedException extends Error {
+import {BaseException} from "./BaseException";
+
+export class ResultNotComputedException extends BaseException {
 
 }
