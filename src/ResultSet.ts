@@ -22,9 +22,21 @@ export class ResultSet {
         return this.suiteName;
     }
 
-    public getFaster(): Result {
-        return this.results.reduce((result) => {
-            
+    public getFastest(): Result {
+        return this.results.reduce((previousValue: Result, currentValue: Result) => {
+            let currentValueIsFaster = previousValue.getAverageIterationTime() > currentValue.getAverageIterationTime();
+            if (currentValueIsFaster) {
+                return currentValue;
+            } else {
+                return previousValue;
+            }
+        });
+    }
+
+    public getSlowest(): Result {
+        return this.results.reduce((previousValue: Result, currentValue: Result) => {
+            let currentValueIsLowest = previousValue.getAverageIterationTime() < currentValue.getAverageIterationTime();
+            return currentValueIsLowest ? currentValue : previousValue;
         });
     }
 }

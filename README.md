@@ -40,7 +40,7 @@ console.log(result);
 
 ### Class Bench
 
-Suitable for make performance test of some code with one or more data sets — fixtures. 
+Suitable for make performance tests of some code with one or more data sets — fixtures. 
 
 ```
 // create bench with 1 million iterations.
@@ -55,7 +55,7 @@ results.push(bench.execute("Test with numbers", [[1], [2], [3]]));
 
 ```
 
-Every fixture is array of arrays, that will be passed as arguments to your_function.apply().
+Every fixture is array of arrays, that will be passed as arguments to your_function.apply(). 
    
 ### Class Result
  
@@ -63,6 +63,26 @@ Every fixture is array of arrays, that will be passed as arguments to your_funct
 - `.getAverageIterationTime(): number` - return average time of iteration in milliseconds. 
 - `.getIterationPerSec(): number` - return number of iterations in second. 
 - `.getTime(): number` - return time spent to this test in milliseconds. 
+
+### Class Suite
+
+Suitable for make performance tests of different versions of code and compaite results. 
+ 
+- `.add(func: Function, caseName?: string)` — add new benchmark unit to suite with given tested code and name (or generated). Throws DuplicateCaseNameException.  
+- `.execute(fixtures: any[] = []): ResultSet` — run all added benchmarks and return set of results. 
+ 
+### Class ResultSet
+
+Collection of `Result` instances for every Bench in Suite. 
+
+- `.getFastest(): Result` - return the fastest bench result.  
+- `.getSlowest(): Result` - return the slowest bench result.    
+
+### Errors (Exceptions) 
+
+Super type of all throwed in library errors `BaseException`. 
+Exported exceptions: 
+- `DuplicateCaseNameException` - throws on duplicate case name in Suite.add().  
 
 ## Testing
 

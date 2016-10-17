@@ -15,6 +15,9 @@ export class Suite {
         this.cycles = cycles;
     }
 
+    /**
+     * @throws DuplicateCaseNameException
+     */
     public add(func: Function, caseName?: string) {
         let numberOfCase = ++this.numberOfCases;
         let uniqueCaseName = caseName || "Case#" + numberOfCase.toString();
